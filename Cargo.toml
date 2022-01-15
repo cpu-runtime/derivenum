@@ -1,0 +1,20 @@
+[package]
+name = "derivenum"
+description = "macros intended for use on enums to reduce boilerplate / provide useful shortcuts"
+version = "0.1.0"
+edition = "2021"
+license-file = "LICENSE"
+keywords = ["macro", "enum", "take", "compile-time", "boilerplate"]
+categories = ["rust-patterns", "development-tools::build-utils", "development-tools"]
+readme = "README.md"
+documentation = "https://docs.rs/derivenum/"
+repository = "https://github.com/cpu-runtime/derivenum"
+
+[lib]
+proc_macro = true
+
+[dependencies]
+proc-macro2 = "1"
+syn = "1"
+quote = "1"
+convert_case = "0"

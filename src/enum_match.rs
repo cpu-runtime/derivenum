@@ -53,8 +53,8 @@ impl Parse for EnumMatch {
                 match variant.fields {
                     Fields::Unnamed(_) => {
                         let doc = format!(
-                            "Returns true if {} has value of {}.",
-                            enum_name_string, variant_name_string
+                            "Returns [`true`] if [`{0}`] has value of [`{1}`]({0}::{1}).",
+                            enum_name_string, variant_name_string,
                         );
                         ts.extend(quote! {
                             #[doc = #doc ]
@@ -65,7 +65,7 @@ impl Parse for EnumMatch {
                     }
                     Fields::Named(_) => {
                         let doc = format!(
-                            "Returns true if {} has value of {}.",
+                            "Returns `[true`] if [`{0}`] has value of [`{1}`]({0}::{1}).",
                             enum_name_string, variant_name_string
                         );
                         ts.extend(quote! {
@@ -77,7 +77,7 @@ impl Parse for EnumMatch {
                     }
                     Fields::Unit => {
                         let doc = format!(
-                            "Returns true if {} has value of {}.",
+                            "Returns [`true`] if [`{0}`] has value of [`{1}`]({0}::{1}).",
                             enum_name_string, variant_name_string
                         );
                         ts.extend(quote! {

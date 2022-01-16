@@ -67,7 +67,7 @@ impl Parse for EnumTake {
                         let tuple_with_braces = quote! {
                             (#tuple)
                         };
-                        let doc = format!("Takes values out of enum value {} as tuple.\n\n# Panics\n\nThis function panics if the wrong value if encountered.", variant_name_string);
+                        let doc = format!("Takes values out of enum value [`{0}`]({1}::{0}) as tuple.\n\n# Panics\n\nThis function panics if the wrong value if encountered.", variant_name_string, enum_name_string);
                         ts.extend(quote! {
                             #[doc = #doc ]
                             pub fn #take_function_ident(self) -> (#unnamed) {
@@ -79,7 +79,7 @@ impl Parse for EnumTake {
                             }
                         });
                     } else if unnamed.len() == 1 {
-                        let doc = format!("Takes value out of enum value {}.\n\n# Panics\n\nThis function panics if the wrong value if encountered.", variant_name_string);
+                        let doc = format!("Takes value out of enum value [`{0}`]({1}::{0}).\n\n# Panics\n\nThis function panics if the wrong value if encountered.", variant_name_string, enum_name_string);
                         ts.extend(quote! {
                             #[doc = #doc ]
                             pub fn #take_function_ident(self) -> #unnamed {
